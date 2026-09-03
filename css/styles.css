@@ -108,7 +108,8 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
 }
 .header-inner { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 20px; }
 .brand { display: flex; align-items: center; gap: 10px; flex-shrink: 0; justify-self: start; }
-.brand-logo { height: 32px; width: auto; }
+.brand-logo { height: 58px; width: auto; transition: height 0.4s var(--ease); }
+.site-header.scrolled .brand-logo { height: 44px; }
 .brand-text {
   font-family: var(--font-heading);
   font-size: 1.2rem;
