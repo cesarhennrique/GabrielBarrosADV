@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init *)",
+      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'feat: estrutura inicial da landing page institucional *)"
+    ]
+  }
+}
