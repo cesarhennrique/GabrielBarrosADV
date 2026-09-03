@@ -171,7 +171,9 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
 }
 
 /* ---------- Hero (full-bleed, arredondado só nas bordas inferiores) ---------- */
-.hero { padding: 0; background: var(--color-dark); }
+/* fundo da seção = cor da próxima seção, para os cantos arredondados do card
+   revelarem branco (como a seção seguinte) em vez de preto */
+.hero { padding: 0; background: var(--color-offwhite); }
 .hero-shell {
   position: relative;
   overflow: hidden;
@@ -209,25 +211,23 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
 }
 .hero-title span { color: var(--color-accent); }
 
-/* Foto do Dr. Gabriel: preenche o hero por inteiro, com as bordas se dissolvendo
-   suavemente no fundo (mesma imagem já tem o degradê navy + balança ao fundo,
-   então o "corte" desaparece e a cena fica contínua, como na referência). */
+/* Foto do Dr. Gabriel: contida (não mais 100% da largura), menos "zoom",
+   ancorada acima do rodapé do card e com folga no topo para não ficar atrás
+   da navbar. As bordas se dissolvem no fundo, e sobra espaço lateral visível
+   dos dois lados para o texto e o card respirarem. */
 .hero-photo-frame {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  bottom: 0;
+  top: 18%;
+  transform: translateX(-50%);
+  width: min(56%, 700px);
   overflow: hidden;
   z-index: 0;
-  -webkit-mask-image: radial-gradient(ellipse 58% 88% at 50% 58%, #000 48%, transparent 96%);
-  mask-image: radial-gradient(ellipse 58% 88% at 50% 58%, #000 48%, transparent 96%);
+  -webkit-mask-image: radial-gradient(ellipse 62% 78% at 50% 50%, #000 45%, transparent 92%);
+  mask-image: radial-gradient(ellipse 62% 78% at 50% 50%, #000 45%, transparent 92%);
 }
-.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
-.hero-photo-frame::after {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(12,22,28,0.15) 0%, transparent 30%, rgba(12,22,28,0.5) 100%);
-}
+.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 8%; }
 .hero-photo-frame.placeholder::before {
   content: 'Foto do Dr. Gabriel\A(preenche o hero, bordas dissolvendo no fundo)';
   white-space: pre;
