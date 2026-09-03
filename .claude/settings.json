@@ -2,7 +2,18 @@
   "permissions": {
     "allow": [
       "Bash(git init *)",
-      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'feat: estrutura inicial da landing page institucional *)"
+      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'feat: estrutura inicial da landing page institucional *)",
+      "Bash(curl -sI http://localhost:5500/index.html)",
+      "Read(//tmp/**)",
+      "Bash(netstat -ano)",
+      "Read(//c//**)",
+      "Bash(chromium-cli --session gbadv)",
+      "Bash(npx --yes playwright --version)",
+      "Bash(npx --yes playwright install chromium --with-deps)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Bash(node shot.js)",
+      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'feat: redesenha o hero seguindo a referência \\(card arredondado, nav em pill, foto centralizada\\) *)"
     ]
   }
 }
