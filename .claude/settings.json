@@ -17,7 +17,9 @@
       "Bash(node shot3.js)",
       "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'feat: hero full-bleed com header sobreposto à imagem *)",
       "Bash(cp gabrielhero.jpg dr-gabriel.jpg)",
-      "Bash(identify dr-gabriel.jpg)"
+      "Bash(identify dr-gabriel.jpg)",
+      "Bash(node shot-responsive.js)",
+      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'fix: ajusta tamanho/posição da foto do hero e corrige menu responsivo *)"
     ]
   }
 }

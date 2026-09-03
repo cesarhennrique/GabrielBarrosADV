@@ -219,31 +219,39 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
 }
 .hero-title span { color: var(--color-accent); }
 
-/* Foto/fundo do Dr. Gabriel: preenche 100% do hero, atrás do conteúdo */
+/* Foto do Dr. Gabriel: centralizada, contida, com bordas dissolvendo no fundo */
 .hero-photo-frame {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: min(38%, 480px);
+  height: 88%;
   overflow: hidden;
   background: linear-gradient(160deg, var(--color-ocean), var(--color-charcoal));
   z-index: 0;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(180deg, transparent 0%, #000 12%, #000 88%, transparent 100%),
+    linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  mask-composite: intersect;
 }
-.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
+.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 15%; }
 .hero-photo-frame::after {
   content: '';
   position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(12,22,28,0.55) 0%, rgba(12,22,28,0.25) 35%, rgba(12,22,28,0.65) 100%);
+  background: linear-gradient(180deg, rgba(12,22,28,0.15) 0%, transparent 30%, rgba(12,22,28,0.5) 100%);
 }
 .hero-photo-frame.placeholder::before {
-  content: 'Imagem de fundo do Dr. Gabriel\A(preenche 100% da seção — envie em alta resolução, formato largo)';
+  content: 'Foto do Dr. Gabriel\A(centralizada, contida)';
   white-space: pre;
   position: absolute; inset: 0;
   z-index: 2;
   display: flex; align-items: center; justify-content: center;
   text-align: center; padding: 20px;
   color: rgba(255,255,255,0.5);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .hero-right {
@@ -651,14 +659,6 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   .cards-grid { grid-template-columns: repeat(2, 1fr); }
   .steps-row { grid-template-columns: repeat(3, 1fr); }
   .values-grid { grid-template-columns: 1fr; }
-  .main-nav { display: none; }
-  .hero-main { flex-direction: column; align-items: flex-start; min-height: auto; padding-top: 20px; gap: 32px; }
-  .hero-left { max-width: 100%; }
-  .hero-title { font-size: clamp(2rem, 7vw, 2.8rem); }
-  .hero-right { align-self: flex-start; align-items: flex-start; }
-  .hero-stats { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 720px) {
   .nav-toggle { display: flex; }
   .nav-cta { display: none; }
   .main-nav {
@@ -673,11 +673,33 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
     align-items: flex-start;
     gap: 26px;
     padding: 40px;
+    border: none;
+    border-radius: 0;
+    backdrop-filter: none;
     transition: right 0.4s var(--ease);
     z-index: 1000;
   }
   .main-nav.open { display: flex; right: 0; box-shadow: -20px 0 50px rgba(0,0,0,0.35); }
   .main-nav a { font-size: 1.05rem; color: var(--color-text-light); }
+  .hero-main { flex-direction: column; align-items: flex-start; min-height: auto; padding-top: 20px; gap: 28px; }
+  .hero-left { max-width: 100%; }
+  .hero-title { font-size: clamp(2rem, 7vw, 2.8rem); }
+  .hero-right { align-self: flex-start; align-items: flex-start; }
+  .hero-stats { grid-template-columns: repeat(2, 1fr); }
+
+  /* Foto volta ao fluxo normal (sai de "fundo absoluto" para um bloco centralizado) */
+  .hero-photo-frame {
+    position: relative;
+    left: auto; bottom: auto; transform: none;
+    width: min(78%, 340px);
+    height: 360px;
+    margin: 8px auto 0;
+    border-radius: 20px;
+    mask-image: none;
+    -webkit-mask-image: none;
+  }
+}
+@media (max-width: 720px) {
   .hero-shell { border-radius: 0 0 28px 28px; min-height: 88vh; }
   .hero-content { padding-top: 96px; }
   .hero-stats { grid-template-columns: 1fr; gap: 16px; }
