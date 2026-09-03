@@ -178,10 +178,7 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   position: relative;
   overflow: hidden;
   background: var(--color-dark);
-  padding-bottom: 0;
   min-height: 92vh;
-  display: flex;
-  flex-direction: column;
   border-radius: 0 0 48px 48px;
 }
 /* Cor de base amostrada diretamente do fundo da foto (rgb(5,16,26)) — o
@@ -194,7 +191,12 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
     linear-gradient(180deg, #05101a 0%, #0a1620 55%, #05101a 100%);
   z-index: 0;
 }
-.hero-content { position: relative; z-index: 2; flex: 1; display: flex; flex-direction: column; padding-top: 118px; }
+/* position:absolute + inset:0 (em vez de item de flexbox) garante que o
+   container ocupe 100% da largura do hero-shell de forma determinística —
+   um item flex com flex:1 aqui encolhia para um tamanho menor que o
+   max-width por causa do cálculo de flex-basis, deixando texto/card presos
+   mais para dentro do que a logo e o botão do menu. */
+.hero-content { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; padding-top: 118px; }
 /* hero-main é só o contexto de posicionamento: texto e card ficam presos
    às bordas (fora da foto), independente da largura/posição da imagem */
 .hero-main {
@@ -231,8 +233,8 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   width: min(56%, 700px);
   overflow: hidden;
   z-index: 0;
-  -webkit-mask-image: radial-gradient(ellipse 62% 78% at 50% 50%, #000 45%, transparent 92%);
-  mask-image: radial-gradient(ellipse 62% 78% at 50% 50%, #000 45%, transparent 92%);
+  -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 62%, #000 32%, transparent 88%);
+  mask-image: radial-gradient(ellipse 62% 62% at 50% 62%, #000 32%, transparent 88%);
 }
 .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 8%; }
 .hero-photo-frame.placeholder::before {
@@ -676,9 +678,10 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   }
   .main-nav.open { display: flex; right: 0; box-shadow: -20px 0 50px rgba(0,0,0,0.35); }
   .main-nav a { font-size: 1.05rem; color: var(--color-text-light); }
-  /* Abaixo de 1024px, texto/foto/card empilham em fluxo normal
+  /* Abaixo de 1024px, foto/texto/card empilham em fluxo normal
      (saem do posicionamento absoluto usado no desktop) */
-  .hero-main { display: flex; flex-direction: column; align-items: flex-start; min-height: auto; padding-top: 20px; gap: 28px; }
+  .hero-content { position: static; padding-top: 20px; }
+  .hero-main { display: flex; flex-direction: column; align-items: flex-start; min-height: auto; padding-top: 0; gap: 28px; }
   .hero-left { position: static; transform: none; max-width: 100%; }
   .hero-title { font-size: clamp(2rem, 7vw, 2.8rem); }
   .hero-right { position: static; transform: none; align-items: flex-start; }

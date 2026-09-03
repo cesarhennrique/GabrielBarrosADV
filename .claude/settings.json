@@ -24,7 +24,9 @@
       "Bash(node check-errors.js)",
       "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'fix: fundo do hero contínuo/suave, remove badge OAB e aumenta espaçamento *)",
       "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'fix: foto menos zoom/afastada da navbar, mais espaço lateral e cantos brancos *)",
-      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'fix: fundo do hero com a cor real da foto e texto/card presos aos cantos *)"
+      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'fix: fundo do hero com a cor real da foto e texto/card presos aos cantos *)",
+      "Bash(node measure.js)",
+      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'fix: corrige bug de largura que impedia texto/card de alinhar às bordas *)"
     ]
   }
 }
