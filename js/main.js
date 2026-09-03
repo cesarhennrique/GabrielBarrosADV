@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* Header: sombra/blur ao rolar */
+  /* Header: transparente sobre o hero, ganha fundo sólido ao rolar */
   const header = document.getElementById('site-header');
   const onScroll = () => {
     if (window.scrollY > 40) header.classList.add('scrolled');

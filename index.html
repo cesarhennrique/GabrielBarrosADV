@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<!-- HEADER -->
+<!-- HEADER: fixo, sobreposto à imagem do hero (fora do card para não ser cortado pelo overflow) -->
 <header class="site-header" id="site-header">
   <div class="container header-inner">
     <a href="#topo" class="brand">
@@ -33,12 +33,15 @@
   </div>
 </header>
 
-<!-- SEÇÃO 01 · TOPO -->
+<!-- SEÇÃO 01 · TOPO (full-bleed) -->
 <section class="hero" id="topo">
-  <div class="container">
-    <div class="hero-shell" data-reveal>
-      <div class="hero-bg"></div>
+  <div class="hero-shell" data-reveal>
+    <div class="hero-bg"></div>
+    <div class="hero-photo-frame">
+      <img src="assets/img/dr-gabriel.jpg" alt="Dr. Gabriel Barros, advogado" class="hero-photo" onerror="this.parentElement.classList.add('placeholder')">
+    </div>
 
+    <div class="container hero-content">
       <span class="hero-badge">
         <i class="hero-badge-icon"></i>
         OAB/PE REGULADO: 55.838
@@ -47,10 +50,6 @@
       <div class="hero-main">
         <div class="hero-left">
           <h1 class="hero-title">Sua Parceira<br>Jurídica de<br><span>Confiança</span></h1>
-        </div>
-
-        <div class="hero-photo-frame">
-          <img src="assets/img/dr-gabriel.jpg" alt="Dr. Gabriel Barros, advogado" class="hero-photo" onerror="this.parentElement.classList.add('placeholder')">
         </div>
 
         <div class="hero-right">
