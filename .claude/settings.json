@@ -20,7 +20,9 @@
       "Bash(identify dr-gabriel.jpg)",
       "Bash(node shot-responsive.js)",
       "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'fix: ajusta tamanho/posição da foto do hero e corrige menu responsivo *)",
-      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'style: header e hero com mais respiro \\(logo/CTA nas bordas, nav centralizada\\) *)"
+      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'style: header e hero com mais respiro \\(logo/CTA nas bordas, nav centralizada\\) *)",
+      "Bash(node check-errors.js)",
+      "Bash(git -c user.email=csarh15@gmail.com -c 'user.name=Gabriel Barros Adv' commit -q -m 'fix: fundo do hero contínuo/suave, remove badge OAB e aumenta espaçamento *)"
     ]
   }
 }
