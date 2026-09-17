@@ -221,29 +221,32 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
 }
 .hero-title span { color: var(--color-accent); }
 
-/* Foto do Dr. Gabriel: fundo do escritório em ambiente (não um retrato de
-   estúdio com fundo liso), por isso preenche o hero por inteiro, como uma
-   foto de fundo real, com um overlay escuro para dar contraste ao texto
-   e unificar o tom com a paleta navy do restante do site. */
+/* Foto do Dr. Gabriel: quadro centralizado e contido (não mais esticada de
+   ponta a ponta) — evita ampliar a imagem além do tamanho original (o que
+   deixava ela borrada) e mantém a pessoa centralizada, num tamanho menor,
+   com as bordas se dissolvendo suavemente no fundo do hero. */
 .hero-photo-frame {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  left: 50%;
+  bottom: 0;
+  top: 14%;
+  transform: translateX(-50%);
+  width: min(50%, 620px);
   overflow: hidden;
   z-index: 0;
+  border-radius: 28px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
 }
-.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 32%; }
+.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
 .hero-photo-frame::after {
   content: '';
   position: absolute; inset: 0;
   background:
-    linear-gradient(100deg, rgba(5,16,26,0.94) 0%, rgba(5,16,26,0.62) 32%, rgba(5,16,26,0.22) 55%, rgba(5,16,26,0.6) 100%),
-    linear-gradient(180deg, rgba(5,16,26,0.55) 0%, rgba(5,16,26,0.08) 22%, rgba(5,16,26,0.12) 65%, rgba(5,16,26,0.78) 100%),
-    rgba(5,16,26,0.25);
+    linear-gradient(180deg, rgba(5,16,26,0.35) 0%, transparent 25%, transparent 65%, rgba(5,16,26,0.55) 100%),
+    rgba(5,16,26,0.12);
 }
 .hero-photo-frame.placeholder::before {
-  content: 'Foto do Dr. Gabriel\A(preenche o hero, bordas dissolvendo no fundo)';
+  content: 'Foto do Dr. Gabriel\A(centralizada, contida)';
   white-space: pre;
   position: absolute; inset: 0;
   z-index: 2;
