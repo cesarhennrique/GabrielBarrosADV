@@ -356,6 +356,10 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   object-fit: cover;
   box-shadow: var(--shadow-card);
 }
+/* Retrato de corpo inteiro (vertical) precisa de um quadro mais alto,
+   senão o 4:3 corta a cabeça e os pés */
+.section-media-portrait img { aspect-ratio: 3/4; object-position: top center; }
+.section-media-portrait.placeholder { aspect-ratio: 3/4; }
 .section-media.placeholder {
   position: relative;
   border-radius: var(--radius-lg);
