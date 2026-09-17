@@ -144,6 +144,11 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   transition: color 0.3s var(--ease);
 }
 .main-nav a:hover { color: var(--color-light); }
+/* Logo/botão de fechar/CTA e overlay só existem no drawer mobile — ficam
+   ocultos por padrão e só aparecem dentro do media query do menu mobile. */
+.main-nav-head { display: none; }
+.main-nav-cta { display: none; }
+.nav-backdrop { display: none; }
 .nav-cta { flex-shrink: 0; justify-self: end; }
 .nav-cta .btn-arrow {
   display: inline-flex; align-items: center; justify-content: center;
@@ -733,6 +738,7 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   }
   .main-nav a:hover { color: var(--color-accent); padding-left: 12px; }
   .main-nav-cta {
+    display: inline-flex;
     margin-top: 24px;
     justify-content: center;
     border-bottom: none;
@@ -740,6 +746,7 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   }
 
   .nav-backdrop {
+    display: block;
     position: fixed;
     inset: 0;
     background: rgba(5, 10, 16, 0.6);
