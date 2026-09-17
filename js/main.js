@@ -15,17 +15,35 @@ document.addEventListener('DOMContentLoaded', () => {
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
 
-  /* Menu mobile */
+  /* Menu mobile: abre/fecha pelo hambúrguer (que vira X), pelo botão de
+     fechar dentro do painel, clicando no overlay escuro, na tecla Esc, ou
+     ao clicar em qualquer link do menu. */
   const navToggle = document.getElementById('nav-toggle');
+  const navClose = document.getElementById('nav-close');
+  const navBackdrop = document.getElementById('nav-backdrop');
   const mainNav = document.getElementById('main-nav');
-  if (navToggle) {
-    navToggle.addEventListener('click', () => {
-      mainNav.classList.toggle('open');
-      navToggle.classList.toggle('active');
-    });
-    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  if (navToggle && mainNav) {
+    const openMenu = () => {
+      mainNav.classList.add('open');
+      navToggle.classList.add('active');
+      navBackdrop.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+    const closeMenu = () => {
       mainNav.classList.remove('open');
-    }));
+      navToggle.classList.remove('active');
+      navBackdrop.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+    navToggle.addEventListener('click', () => {
+      mainNav.classList.contains('open') ? closeMenu() : openMenu();
+    });
+    if (navClose) navClose.addEventListener('click', closeMenu);
+    if (navBackdrop) navBackdrop.addEventListener('click', closeMenu);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMenu();
+    });
+    mainNav.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   }
 
   /* Reveal on scroll (animações suaves de entrada) */
