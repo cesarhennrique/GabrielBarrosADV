@@ -221,29 +221,27 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
 }
 .hero-title span { color: var(--color-accent); }
 
-/* Foto do Dr. Gabriel: contida (não mais 100% da largura), menos "zoom",
-   ancorada acima do rodapé do card e com folga no topo para não ficar atrás
-   da navbar. As bordas se dissolvem no fundo, e sobra espaço lateral visível
-   dos dois lados para o texto e o card respirarem. */
+/* Foto do Dr. Gabriel: fundo do escritório em ambiente (não um retrato de
+   estúdio com fundo liso), por isso preenche o hero por inteiro, como uma
+   foto de fundo real, com um overlay escuro para dar contraste ao texto
+   e unificar o tom com a paleta navy do restante do site. */
 .hero-photo-frame {
   position: absolute;
-  left: 50%;
-  bottom: 0;
-  top: 18%;
-  transform: translateX(-50%);
-  width: min(56%, 700px);
+  inset: 0;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   z-index: 0;
-  /* Raio da elipse calculado para fechar em 0% de opacidade exatamente
-     nas bordas (não nos cantos): usar o padrão do navegador (farthest-corner)
-     fecha nos cantos mas deixa as LATERAIS (ponto mais próximo do centro)
-     ainda visíveis — por isso o raio aqui é a menor distância do centro
-     até uma borda (50% na horizontal; 42% na vertical, que é a menor
-     entre o topo a 42% e a base a 58%). */
-  -webkit-mask-image: radial-gradient(ellipse 50% 42% at 50% 42%, #000 40%, transparent 100%);
-  mask-image: radial-gradient(ellipse 50% 42% at 50% 42%, #000 40%, transparent 100%);
 }
-.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 8%; }
+.hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 32%; }
+.hero-photo-frame::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(100deg, rgba(5,16,26,0.94) 0%, rgba(5,16,26,0.62) 32%, rgba(5,16,26,0.22) 55%, rgba(5,16,26,0.6) 100%),
+    linear-gradient(180deg, rgba(5,16,26,0.55) 0%, rgba(5,16,26,0.08) 22%, rgba(5,16,26,0.12) 65%, rgba(5,16,26,0.78) 100%),
+    rgba(5,16,26,0.25);
+}
 .hero-photo-frame.placeholder::before {
   content: 'Foto do Dr. Gabriel\A(preenche o hero, bordas dissolvendo no fundo)';
   white-space: pre;
