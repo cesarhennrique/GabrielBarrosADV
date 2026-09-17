@@ -142,16 +142,26 @@ document.addEventListener('DOMContentLoaded', () => {
     carouselSection.addEventListener('mouseleave', resetAutoplay);
   }
 
-  /* Formulário de contato -> WhatsApp */
+  /* Formulário de contato -> abre o e-mail do usuário com a mensagem
+     pronta, endereçada ao e-mail oficial do escritório. */
   const form = document.getElementById('contact-form');
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const nome = form.nome.value.trim();
       const whatsapp = form.whatsapp.value.trim();
+      const email = form.email.value.trim();
       const mensagem = form.mensagem.value.trim();
-      const texto = `Olá! Meu nome é ${nome}.%0AWhatsApp: ${whatsapp}%0A%0A${encodeURIComponent(mensagem)}`;
-      window.open(`https://wa.me/5581991023600?text=${texto}`, '_blank');
+
+      const assunto = `Contato pelo site - ${nome}`;
+      const corpo =
+        `Nome: ${nome}\n` +
+        `WhatsApp: ${whatsapp}\n` +
+        (email ? `E-mail para retorno: ${email}\n` : '') +
+        `\nMensagem:\n${mensagem}`;
+
+      const mailtoLink = `mailto:contato@gabrielbarrosadv.com.br?subject=${encodeURIComponent(assunto)}&body=${encodeURIComponent(corpo)}`;
+      window.location.href = mailtoLink;
     });
   }
 
