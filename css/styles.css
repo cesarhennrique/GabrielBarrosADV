@@ -234,16 +234,22 @@ p { line-height: 1.7; color: var(--color-text-muted); margin: 0 0 1rem; }
   width: min(50%, 620px);
   overflow: hidden;
   z-index: 0;
-  border-radius: 28px;
-  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  /* Raio da elipse = distância do centro até a borda mais próxima em cada
+     eixo (50% na horizontal e na vertical, já que o centro está em 50% 50%),
+     garantindo transparência total exatamente na borda da caixa — não só
+     nos cantos — para a foto se dissolver no fundo do hero sem retângulo
+     visível, como se ela fosse o próprio fundo nesse tamanho contido. */
+  -webkit-mask-image: radial-gradient(ellipse 50% 50% at 50% 46%, #000 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse 50% 50% at 50% 46%, #000 40%, transparent 100%);
 }
 .hero-photo-frame img { width: 100%; height: 100%; object-fit: cover; object-position: center 22%; }
 .hero-photo-frame::after {
   content: '';
   position: absolute; inset: 0;
   background:
-    linear-gradient(180deg, rgba(5,16,26,0.35) 0%, transparent 25%, transparent 65%, rgba(5,16,26,0.55) 100%),
-    rgba(5,16,26,0.12);
+    linear-gradient(180deg, rgba(5,16,26,0.4) 0%, transparent 28%, transparent 62%, rgba(5,16,26,0.6) 100%),
+    linear-gradient(90deg, rgba(5,16,26,0.55) 0%, transparent 30%, transparent 70%, rgba(5,16,26,0.45) 100%),
+    rgba(5,16,26,0.18);
 }
 .hero-photo-frame.placeholder::before {
   content: 'Foto do Dr. Gabriel\A(centralizada, contida)';
