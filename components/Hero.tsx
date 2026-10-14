@@ -3,14 +3,7 @@
 import Image from "next/image";
 import { useLayoutEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { Star, ArrowUpRight, Scale, BadgeCheck, Users, MapPinned } from "lucide-react";
-
-const STATS = [
-  { icon: Scale, value: "OAB/PE 55.838", label: "Registro profissional ativo" },
-  { icon: Star, value: "5,0", label: "Nota no Google" },
-  { icon: Users, value: "152+", label: "Avaliações de clientes" },
-  { icon: MapPinned, value: "100%", label: "Atendimento em todo o Brasil" },
-];
+import { Star, ArrowUpRight } from "lucide-react";
 
 export default function Hero() {
   const rootRef = useRef<HTMLElement>(null);
@@ -24,12 +17,12 @@ export default function Hero() {
 
       tl.from(".hero-photo-reveal", {
         clipPath: "inset(0 0 100% 0)",
-        scale: 1.08,
+        scale: 1.06,
         duration: 1.3,
         ease: "power4.out",
       })
         .from(
-          ".hero-title-line",
+          ".hero-title-line > span",
           { yPercent: 115, opacity: 0, duration: 0.9, stagger: 0.12 },
           "-=0.9"
         )
@@ -38,11 +31,6 @@ export default function Hero() {
           ".hero-cta-group > *",
           { y: 16, opacity: 0, duration: 0.6, stagger: 0.1 },
           "-=0.35"
-        )
-        .from(
-          ".hero-motif",
-          { opacity: 0, scale: 0.85, duration: 0.8, stagger: 0.08 },
-          "-=0.5"
         );
     }, rootRef);
 
@@ -53,22 +41,16 @@ export default function Hero() {
     <section
       ref={rootRef}
       id="topo"
-      className="relative overflow-hidden bg-navy pt-28 md:pt-32"
+      className="relative overflow-hidden bg-navy"
     >
-      {/* Motifs geométricos — mosaico quadrado discreto */}
-      <span className="motif-square hero-motif h-16 w-16 left-[6%] top-[22%] hidden md:block" />
-      <span className="motif-square hero-motif h-10 w-10 left-[10%] top-[68%] hidden md:block" />
-      <span className="motif-square hero-motif h-24 w-24 right-[4%] top-[12%] hidden lg:block" />
-
-      <div className="relative mx-auto grid max-w-[1440px] grid-cols-1 items-center gap-14 px-6 pb-20 md:px-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:pb-28">
+      <div className="relative mx-auto grid min-h-[86vh] max-w-[1440px] grid-cols-1 items-center gap-10 px-6 py-16 md:px-12 lg:min-h-[88vh] lg:grid-cols-[44%_56%] lg:gap-0 lg:py-0">
         {/* Copy — esquerda */}
-        <div className="relative z-10 order-2 lg:order-1">
-          <p className="hero-support mb-5 inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-champagne uppercase">
-            <span className="h-px w-8 bg-champagne" />
+        <div className="relative z-10 order-2 lg:order-1 lg:pr-12">
+          <p className="hero-support mb-6 text-xs font-semibold tracking-[0.22em] text-champagne uppercase">
             Gabriel Barros Advogado
           </p>
 
-          <h1 className="font-serif text-[2.6rem] leading-[1.05] text-off-white sm:text-6xl lg:text-[4.2rem]">
+          <h1 className="font-serif text-[2.5rem] leading-[1.08] text-off-white sm:text-6xl lg:text-[4rem]">
             <span className="hero-title-line block overflow-hidden">
               <span className="block">Sua Parceira</span>
             </span>
@@ -80,14 +62,16 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="hero-support mt-7 max-w-md text-base leading-relaxed text-off-white/70">
+          <div className="hero-support mt-7 h-px w-16 bg-champagne/50" />
+
+          <p className="hero-support mt-7 max-w-md text-base leading-relaxed text-off-white/65">
             Advocacia estratégica para as necessidades pessoais e da sua família.
           </p>
 
-          <div className="hero-cta-group mt-9 flex flex-wrap items-center gap-5">
+          <div className="hero-cta-group mt-9 flex flex-wrap items-center gap-6">
             <a
               href="#contato"
-              className="inline-flex items-center gap-2 rounded-full bg-champagne px-8 py-4 text-sm font-semibold text-navy transition-transform duration-300 hover:-translate-y-0.5 hover:bg-champagne-light"
+              className="inline-flex items-center gap-2 rounded-sm bg-champagne px-8 py-4 text-sm font-semibold uppercase tracking-[0.04em] text-navy transition-colors duration-300 hover:bg-champagne-light"
             >
               Apresentar meu caso
               <ArrowUpRight className="h-4 w-4" strokeWidth={2.5} />
@@ -104,43 +88,25 @@ export default function Hero() {
               </span>
             </div>
           </div>
-
-          {/* Linha institucional — informações existentes preservadas */}
-          <dl className="hero-support mt-14 grid max-w-lg grid-cols-2 gap-x-8 gap-y-7 border-t border-white/10 pt-9 sm:grid-cols-4 sm:gap-x-6">
-            {STATS.map(({ icon: Icon, value, label }) => (
-              <div key={label} className="flex items-start gap-2.5">
-                <Icon className="mt-0.5 h-4 w-4 shrink-0 text-champagne" strokeWidth={1.75} />
-                <div>
-                  <dt className="font-serif text-base text-off-white">{value}</dt>
-                  <dd className="mt-0.5 text-[0.7rem] leading-snug text-off-white/55">{label}</dd>
-                </div>
-              </div>
-            ))}
-          </dl>
         </div>
 
-        {/* Fotografia — direita */}
-        <div className="relative order-1 z-10 lg:order-2">
-          <div className="hero-photo-reveal relative aspect-[4/5] w-full overflow-hidden rounded-sm shadow-[0_40px_90px_-30px_rgba(0,0,0,0.7)] sm:max-w-md lg:ml-auto">
+        {/* Fotografia — direita, integrada ao fundo (sem card isolado) */}
+        <div className="pointer-events-none absolute inset-y-0 right-0 z-0 w-full lg:w-[56%]">
+          <div className="hero-photo-reveal relative h-full w-full">
             <Image
               src="/assets/img/gbhero.webp"
               alt="Dr. Gabriel Barros, advogado"
               fill
               priority
-              sizes="(max-width: 1024px) 90vw, 40vw"
-              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 56vw"
+              className="object-cover object-[75%_20%]"
             />
-            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-navy-deep/70 via-transparent to-navy-deep/10" />
-          </div>
-
-          {/* Selo discreto, badge institucional */}
-          <div className="hero-motif absolute -bottom-6 left-0 flex items-center gap-3 rounded-sm border border-champagne/25 bg-navy/90 px-5 py-4 backdrop-blur-md sm:left-6">
-            <BadgeCheck className="h-5 w-5 shrink-0 text-champagne" strokeWidth={1.75} />
-            <p className="text-xs leading-snug text-off-white/80">
-              OAB/PE 55.838
-              <br />
-              <span className="text-off-white/55">Advocacia registrada e ativa</span>
-            </p>
+            {/* Blend cinematográfico: a foto original tem uma janela clara
+                ao fundo (ver nota de limitação no relatório) — este overlay
+                funde a borda esquerda da imagem à paleta navy da Hero sem
+                apagar o rosto. */}
+            <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/25 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-navy/55 via-transparent to-navy/10" />
           </div>
         </div>
       </div>
