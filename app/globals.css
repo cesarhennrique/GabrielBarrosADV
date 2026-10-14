@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+/* ============================================================
+   GABRIEL BARROS ADVOCACIA — Design System "Editorial Legal"
+   Conceito: Cinematic Authority
+   ============================================================ */
+
+:root {
+  --color-navy: #101823;
+  --color-navy-deep: #0a1019;
+  --color-off-white: #F4F1EC;
+  --color-champagne: #B79A72;
+  --color-champagne-light: #D4BFA0;
+  --color-ink: #1A2230;
+  --color-mist: rgba(244, 241, 236, 0.65);
+}
+
+@theme inline {
+  --color-navy: var(--color-navy);
+  --color-navy-deep: var(--color-navy-deep);
+  --color-off-white: var(--color-off-white);
+  --color-champagne: var(--color-champagne);
+  --color-champagne-light: var(--color-champagne-light);
+  --color-ink: var(--color-ink);
+  --color-mist: var(--color-mist);
+
+  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: var(--color-off-white);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+/* Elemento geométrico quadrado discreto (mosaico editorial) */
+.motif-square {
+  position: absolute;
+  border: 1px solid rgba(183, 154, 114, 0.35);
+}
+
+/* Respeita prefers-reduced-motion: desativa qualquer animação
+   controlada via classe utilitária [data-animate] quando o usuário
+   pede menos movimento. O GSAP também checa isso via matchMedia. */
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}

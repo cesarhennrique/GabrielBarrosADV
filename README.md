@@ -1,42 +1,50 @@
-# Gabriel Barros Advogado — Landing Page
+# Gabriel Barros Advocacia — Site PRO (migração em andamento)
 
-Site institucional em HTML/CSS/JS puro (sem build), com animações suaves de entrada (scroll reveal) e rolagem otimizada, seguindo o conteúdo do PDF institucional e a referência visual de design enviada (dark navy + dourado, tipografia serifada em títulos).
+Este branch (`nextjs-migration`) contém a reconstrução do site em **Next.js (App Router) + TypeScript + Tailwind CSS + GSAP**, seguindo o padrão SITE PRO — Editorial Legal / Cinematic Authority.
 
-## Estrutura
-```
-index.html          → todas as seções da página (13 seções + header/footer)
-css/styles.css       → paleta, tipografia, layout, animações
-js/main.js            → header dinâmico, menu mobile, scroll reveal, tabs, accordion, carrossel, formulário
-assets/img/           → onde entram as fotos e logo (ver abaixo)
-```
+**A versão em produção (branch `main`) não foi alterada.** Nada neste branch foi publicado ainda.
 
-## Paleta usada (extraída da referência)
-- Dourado (accent): `#C8A450`
-- Dark / navy: `#0C161C`
-- Charcoal: `#15242E`
-- Ocean Pine: `#356469`
-- Texto claro: `#EAEAEA`
-- Texto corpo (fundo claro): `#555555`
+## Status desta etapa
 
-Fontes: **Playfair Display** (títulos, elegante/serifada) + **Inter** (corpo, moderna).
+Implementado e aprovado para revisão:
+- ✅ Navbar (desktop + drawer mobile)
+- ✅ Hero (fotografia, copy, CTA, informações institucionais, animação GSAP)
 
-## Pendências para você enviar
-1. **Logo** → salvar como `assets/img/logo.svg` (ou .png). Enquanto não existir, o header some o espaço do logo automaticamente.
-2. **Foto do Dr. Gabriel (topo/hero)** → `assets/img/dr-gabriel.jpg`
-3. **Foto/retrato do Dr. Gabriel (seção "Quem vai conduzir seu caso")** → `assets/img/dr-gabriel-retrato.jpg`
-4. **Foto do escritório** → `assets/img/escritorio.jpg`
-5. **Mais avaliações do Google** (12 a 15) para completar o carrossel da seção de Avaliações — atualmente só as 3 avaliações reais já transcritas no PDF estão no site.
-6. **Número de avaliações (152)** está em `<span id="review-count">` em três lugares — pode ser atualizado manualmente até termos um campo dinâmico via CMS/JS.
+Pendente (próximas etapas, uma a uma):
+- O Escritório, Áreas de Atuação, Situações Frequentes, Avaliações, Quem Conduz o Caso, Método, Valores, Onde Atendemos, FAQ, Contato, Rodapé.
 
-Basta colocar os arquivos de imagem com os nomes acima dentro de `assets/img/` que eles aparecem automaticamente (há um fallback visual "placeholder" enquanto não existem).
+Essas seções continuam disponíveis e funcionais na **versão estática anterior**, preservada em:
+- Branch `legacy-static-site`
+- Tag `v1-static-site-backup`
+- E inalterada no próprio branch `main` (produção atual)
 
 ## Rodar localmente
-Basta abrir o `index.html` no navegador, ou rodar um servidor local:
-```
-npx serve .
+
+```bash
+npm install
+npm run dev
 ```
 
-## Próximos passos sugeridos
-- Trocar textos placeholder do carrossel de avaliações pelas reais.
-- Conectar o formulário de contato a um backend/e-mail (hoje ele abre o WhatsApp com a mensagem preenchida).
-- Adicionar favicon e imagem de compartilhamento (Open Graph).
+Abra [http://localhost:3000](http://localhost:3000).
+
+## Stack
+
+- Next.js 16 (App Router, Turbopack)
+- TypeScript (modo strict)
+- Tailwind CSS v4 (tokens de design em `app/globals.css`)
+- GSAP (animações de entrada da Hero)
+- lucide-react (ícones)
+
+## Paleta (conceito Editorial Legal)
+
+| Token | Valor |
+|---|---|
+| Navy | `#101823` |
+| Off-white | `#F4F1EC` |
+| Champagne | `#B79A72` |
+
+Tipografia: Playfair Display (editorial, títulos) + Inter (interface, texto).
+
+## Assets
+
+Imagens e ícones ficam em `public/assets/`, copiados dos mesmos arquivos otimizados (WebP) já usados na versão estática.
