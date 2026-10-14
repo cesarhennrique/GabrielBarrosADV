@@ -90,7 +90,7 @@ export default function EditorialCards() {
 
   return (
     <div ref={rootRef} className="relative z-20 bg-off-white">
-      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 px-6 pb-20 pt-10 sm:-mt-14 sm:pt-0 md:px-12 lg:-mt-24 lg:grid-cols-3 lg:gap-10">
+      <div className="mx-auto grid max-w-[1200px] grid-cols-1 gap-8 px-6 pb-20 pt-10 sm:-mt-12 sm:pt-0 md:px-12 lg:-mt-20 lg:grid-cols-3 lg:gap-10">
         {CARDS.map(({ icon: Icon, title, text, image }) => (
           <article
             key={title}

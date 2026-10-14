@@ -43,14 +43,14 @@ export default function Hero() {
       id="topo"
       className="relative overflow-hidden bg-navy"
     >
-      <div className="relative mx-auto grid min-h-[86vh] max-w-[1440px] grid-cols-1 items-center gap-10 px-6 py-16 md:px-12 lg:min-h-[88vh] lg:grid-cols-[44%_56%] lg:gap-0 lg:py-0">
+      <div className="relative mx-auto grid min-h-[560px] max-w-[1440px] grid-cols-1 items-center gap-8 px-6 py-14 md:px-12 lg:min-h-[620px] lg:grid-cols-[44%_56%] lg:gap-0 lg:py-0">
         {/* Copy — esquerda */}
         <div className="relative z-10 order-2 lg:order-1 lg:pr-12">
-          <p className="hero-support mb-6 text-xs font-semibold tracking-[0.22em] text-champagne uppercase">
+          <p className="hero-support mb-5 text-xs font-semibold tracking-[0.22em] text-champagne uppercase">
             Gabriel Barros Advogado
           </p>
 
-          <h1 className="font-serif text-[2.5rem] leading-[1.08] text-off-white sm:text-6xl lg:text-[4rem]">
+          <h1 className="font-serif text-[2.4rem] leading-[1.06] text-off-white sm:text-5xl lg:text-[3.6rem]">
             <span className="hero-title-line block overflow-hidden">
               <span className="block">Sua Parceira</span>
             </span>
@@ -62,13 +62,13 @@ export default function Hero() {
             </span>
           </h1>
 
-          <div className="hero-support mt-7 h-px w-16 bg-champagne/50" />
+          <div className="hero-support mt-6 h-px w-16 bg-champagne/50" />
 
-          <p className="hero-support mt-7 max-w-md text-base leading-relaxed text-off-white/65">
+          <p className="hero-support mt-6 max-w-md text-base leading-relaxed text-off-white/65">
             Advocacia estratégica para as necessidades pessoais e da sua família.
           </p>
 
-          <div className="hero-cta-group mt-9 flex flex-wrap items-center gap-6">
+          <div className="hero-cta-group mt-7 flex flex-wrap items-center gap-6">
             <a
               href="#contato"
               className="inline-flex items-center gap-2 rounded-sm bg-champagne px-8 py-4 text-sm font-semibold uppercase tracking-[0.04em] text-navy transition-colors duration-300 hover:bg-champagne-light"
@@ -99,14 +99,15 @@ export default function Hero() {
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 56vw"
-              className="object-cover object-[75%_20%]"
+              className="object-cover object-[75%_20%] contrast-110 brightness-105"
             />
             {/* Blend cinematográfico: a foto original tem uma janela clara
                 ao fundo (ver nota de limitação no relatório) — este overlay
                 funde a borda esquerda da imagem à paleta navy da Hero sem
-                apagar o rosto. */}
-            <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/25 to-transparent" />
-            <div className="absolute inset-0 bg-linear-to-t from-navy/55 via-transparent to-navy/10" />
+                apagar o rosto. Gradientes mais leves que a versão anterior
+                para preservar o rosto e o tronco visíveis. */}
+            <div className="absolute inset-0 bg-linear-to-r from-navy via-navy/12 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-t from-navy/35 via-transparent to-navy/5" />
           </div>
         </div>
       </div>
